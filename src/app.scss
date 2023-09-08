@@ -1,0 +1,86 @@
+@font-face {
+    font-family: "Comfortaa";
+    src: url("./assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Playfair Display";
+    src: url("./assets/fonts/Playfair_Display/PlayfairDisplay-Medium.ttf");
+}
+
+* {
+    // font-family: "Comfortaa";
+    font-family: "Playfair Display";
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 100vw;
+}
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    & img {
+        filter: brightness(40%);
+    }
+    &_box {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+
+        &_title {
+            color: azure;
+            font-size: 150px;
+            text-shadow: 0.1em 0 rgb(85, 85, 85);
+        }
+
+        &_input {
+            width: 600px;
+            height: 50px;
+            border-radius: 50px;
+            border: none;
+            padding: 15px 25px;
+            font-size: 25px;
+            color: black;
+        }
+    }
+}
+
+.sort {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    font-size: 25px;
+    gap: 30px;
+}
+
+.list_books {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+
+    &_item {
+        display: flex;
+        flex-direction: column;
+        // max-height: 400px;
+
+        background: rgb(233, 230, 222);
+        font-size: 20px;
+        border: 1px solid rgb(201, 201, 201);
+        border-radius: 30px;
+        padding: 30px;
+        gap: 10px;
+        & img {
+            width: 200px;
+        }
+    }
+}
