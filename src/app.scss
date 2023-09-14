@@ -50,7 +50,6 @@ body {
 
     & img {
         filter: brightness(40%);
-   
     }
     &_box {
         display: flex;
@@ -79,11 +78,11 @@ body {
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
-.search{
-    & img{
-        width: 100%;
+    .search {
+        & img {
+            width: 100%;
+        }
     }
-}
 
     .search_box_title {
         font-size: 120px;
@@ -97,12 +96,12 @@ body {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .search{
-        & img{
+    .search {
+        & img {
             width: 100%;
         }
     }
-  
+
     .search_box_title {
         font-size: 80px;
     }
@@ -115,8 +114,8 @@ body {
 }
 
 @media screen and (min-width: 425px) and (max-width: 768px) {
-    .search{
-        & img{
+    .search {
+        & img {
             width: 100%;
         }
     }
@@ -124,18 +123,23 @@ body {
     .search_box_title {
         font-size: 45px;
     }
-
 }
 
 @media screen and (min-width: 320px) and (max-width: 425px) {
-    .search{
-        & img{
+    .search {
+        & img {
             width: 100%;
         }
     }
 
     .search_box_title {
-        font-size:30px;
+        font-size: 30px;
     }
 
+    .list_books {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        grid-column-gap: 10px;
+        grid-row-gap: 25px;
+        
+    }
 }
