@@ -1,0 +1,63 @@
+.sort {
+    margin: 40px auto;
+    display: flex;
+    font-size: 30px;
+    width: fit-content;
+    position: relative;
+
+    &_filter {
+        width: fit-content;
+        display: flex;
+        align-items: baseline;
+        svg {
+            margin-right: 8px;
+        }
+
+        b {
+            margin-right: 8px;
+        }
+
+        span {
+            color: #ffffff;
+
+            cursor: pointer;
+        }
+    }
+
+    &_filter_new {
+        top: 30px;
+        margin-top: 15px;
+        position: absolute;
+        background: #ffffff;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 10px 0;
+        width: auto;
+        right: 0;
+
+        ul {
+            overflow: hidden;
+            li {
+                padding: 12px 20px;
+                cursor: pointer;
+
+                &.active,
+                &:hover {
+                    background: rgba(254, 95, 30, 0.05);
+                }
+
+                &.active {
+                    font-weight: bold;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+    .sort{
+        font-size: 27px;
+    }
+}

@@ -9,17 +9,38 @@
 }
 
 * {
-    // font-family: "Comfortaa";
-    font-family: "Playfair Display";
+    font-family: "Comfortaa";
     margin: 0;
     padding: 0;
     list-style: none;
+    box-sizing: border-box;
+}
+body {
+    background: #cfbfb2;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 13px;
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 5px 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(160, 130, 93);
+        box-shadow: inset 5px 0px 6px rgba(0, 0, 0, 0.3);
+        border-radius: 17px;
+        // outline: 1px solid slategrey;
+    }
 }
 
 .wrapper {
     margin: 0 auto;
-    width: 100vw;
+    width: 100%;
+    max-width: 1920px;
 }
+
 .search {
     display: flex;
     justify-content: center;
@@ -37,50 +58,49 @@
         align-items: center;
 
         &_title {
-            color: azure;
+            color: #f0e1d6;
             font-size: 150px;
             text-shadow: 0.1em 0 rgb(85, 85, 85);
-        }
-
-        &_input {
-            width: 600px;
-            height: 50px;
-            border-radius: 50px;
-            border: none;
-            padding: 15px 25px;
-            font-size: 25px;
-            color: black;
+            user-select: none;
         }
     }
 }
 
-.sort {
-    display: flex;
-    justify-content: center;
-    margin: 50px;
-    font-size: 25px;
-    gap: 30px;
+.list_books {
+    display: grid;
+    margin: 0 35px 50px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+    grid-column-gap: 65px;
+    grid-row-gap: 40px;
+    user-select: none;
+    justify-items: center;
 }
 
-.list_books {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin: 0 auto;
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+    .search_box_title {
+        font-size: 120px;
+    }
+    .list_books {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        margin: 0 30px 40px;
+        grid-column-gap: 50px;
+        grid-row-gap: 30px;
+    }
+}
 
-    &_item {
-        display: flex;
-        flex-direction: column;
-        // max-height: 400px;
-
-        background: rgb(233, 230, 222);
-        font-size: 20px;
-        border: 1px solid rgb(201, 201, 201);
-        border-radius: 30px;
-        padding: 30px;
-        gap: 10px;
-        & img {
-            width: 200px;
-        }
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .wrapper {
+       display: flex;
+       flex-direction: column;
+    //    margin: auto 0 ;
+    }
+    .search_box_title {
+        font-size: 100px;
+    }
+    .list_books {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        margin: 0 30px 30px;
+        grid-row-gap: 25px;
     }
 }

@@ -1,78 +1,84 @@
-import React from "react";
-import book from "./assets/img/6140a289440e2.jpg";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import background from "./assets/img/fon.png";
+import { BookItem } from "./componets/Block/BookItem";
+import { Search } from "./componets/Search/Search";
+import { Sort } from "./componets/Sort/Sort";
+import { useSelector } from "react-redux";
+import { Pagination } from "./componets/Pagination/Pagination";
+
+const sortList = [
+  { id: 1, name: "relevance" },
+  { id: 2, name: "newest" },
+];
+
+const urlApi = "https://www.googleapis.com/books/v1/volumes/?q=";
+const keyApi = "&key=AIzaSyDMKoTpafmPO1XOyoeqhM-1F37lknXZqgA";
 
 function App() {
+  const [searchValue, setSearchValue] = React.useState("");
+  const [bookData, setBookData] = React.useState([]);
+  const [errorSearch, setErrorSearch] = React.useState("");
+  const [sort, setSort] = React.useState({ id: 1, name: "relevance" });
+  const [maxResults, setMaxResults] = useState(30);
+
+  const handleSort = (value) => setSort(value);
+  const handleChange = (value) => setSearchValue(value);
+  const handleClick = (value) => setSearchValue(value);
+
+  const [currentPage, setCurrentPage] = React.useState(1);
+
+  const searchBookQuery = () => {
+    axios
+      .get(
+        `${urlApi}${searchValue}&orderBy=${sort.name}${keyApi}&maxResults=${maxResults}&startIndex=${currentPage}`
+      )
+      .then((res) => setBookData(res.data.items))
+      .catch((err) => setErrorSearch(err));
+  };
+
+  const searchBook = (event) => {
+    if (event.key === "Enter") {
+      searchBookQuery();
+    }
+  };
+
+  const searchBookClick = () => {
+    
+      searchBookQuery();
+    
+  };
+
+  useEffect(() => {
+    searchBookQuery();
+  }, [sort, currentPage]);
+
   return (
     <div className="wrapper">
       <div className="search">
-
         <img src={background} alt="" />
         <div className="search_box">
-        <h2 className="search_box_title">Search for books</h2>
-        <input type="text" className="search_box_input" placeholder="Search..." />
+          <h2 className="search_box_title">Search for books</h2>
+          <Search
+            searchBook={searchBook}
+            searchValue={searchValue}
+            onChange={handleChange}
+            searchBookClick={searchBookClick}
+          />
         </div>
-        
       </div>
-      <div className="sort">
-        <ul>
-          Category <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z"/></svg>
-          {/* <li>all</li>
-          <li>art</li>
-          <li>biography</li>
-          <li>computers</li>
-          <li>history</li>
-          <li>medical</li>
-          <li>poetry</li> */}
-        </ul>
-        <ul>
-          Sort <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z"/></svg>
-          {/* <li>relevance </li>
-          <li>newest</li> */}
-        </ul>
-      </div>
-      <div className="list_books">
-        <div className="list_books_item">
-          <img src={book} alt="" />
-          <p>Название</p>
-          <p>категория</p>
-          <p>автор</p>
-        </div>
-        <div className="list_books_item">
-          <img src={book} alt="" />
-          <p>Название</p>
-          <p>категория</p>
-          <p>автор</p>
-        </div>
-        <div className="list_books_item">
-          <img src={book} alt="" />
-          <p>Название</p>
-          <p>категория</p>
-          <p>автор</p>
-        </div>
-        <div className="list_books_item">
-          <img src={book} alt="" />
-          <p>Название</p>
-          <p>категория</p>
-          <p>автор</p>
-        </div>
-        <div className="list_books_item">
-          <img src={book} alt="" />
-          <p>Название</p>
-          <p>категория</p>
-          <p>автор</p>
-        </div>
-        <div className="list_books_item">
-          <img src={book} alt="" />
-          <p>Название</p>
-          <p>категория</p>
-          <p>автор</p>
-        </div>
-        
-        
 
+      <Sort handleFuncSort={handleSort} sortList={sortList} />
+
+      <div className="list_books">
+        {bookData?.map((item, index) => (
+          <BookItem item={item} key={index} />
+        ))}
       </div>
-      
+      <Pagination
+        onChangePage={(number) => setCurrentPage(number)}
+        pageCount={maxResults}
+      />
     </div>
   );
 }
