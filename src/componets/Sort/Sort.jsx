@@ -1,12 +1,8 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setSort } from "../../redux/slices/filterSlise";
+import { useSelector } from "react-redux";
 import style from "./Sort.module.scss";
 
-export const Sort = ({
-  handleFuncSort,
-  sortList,
-}) => {
+export const Sort = ({ handleFuncSort, list }) => {
   const sort = useSelector((state) => state.filter.sort);
   const [open, setOpen] = React.useState(false);
 
@@ -17,6 +13,7 @@ export const Sort = ({
 
   return (
     <div className={style.sort}>
+      
       <ul>
         <div className={style.sort_filter}>
           <b>Sorting by</b>
@@ -34,7 +31,7 @@ export const Sort = ({
           <div className={style.sort_filter_new}>
             {open && (
               <ul>
-                {sortList.map((obj, i) => (
+                {list.map((obj, i) => (
                   <li
                     key={i}
                     onClick={() => onClickListItem(obj)}

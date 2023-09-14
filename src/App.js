@@ -4,10 +4,9 @@ import background from "./assets/img/fon.png";
 import { BookItem } from "./componets/Block/BookItem";
 import { Search } from "./componets/Search/Search";
 import { Sort } from "./componets/Sort/Sort";
-import { useSelector } from "react-redux";
 import { Pagination } from "./componets/Pagination/Pagination";
 
-const sortList = [
+const list = [
   { id: 1, name: "relevance" },
   { id: 2, name: "newest" },
 ];
@@ -24,7 +23,6 @@ function App() {
 
   const handleSort = (value) => setSort(value);
   const handleChange = (value) => setSearchValue(value);
-  const handleClick = (value) => setSearchValue(value);
 
   const [currentPage, setCurrentPage] = React.useState(1);
 
@@ -44,9 +42,7 @@ function App() {
   };
 
   const searchBookClick = () => {
-    
-      searchBookQuery();
-    
+    searchBookQuery();
   };
 
   useEffect(() => {
@@ -68,7 +64,7 @@ function App() {
         </div>
       </div>
 
-      <Sort handleFuncSort={handleSort} sortList={sortList} />
+      <Sort handleFuncSort={handleSort} list={list} />
 
       <div className="list_books">
         {bookData?.map((item, index) => (
