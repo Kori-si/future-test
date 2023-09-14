@@ -56,6 +56,7 @@
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
     .search {
         width: 550px;
+        padding: 5px 10px;
         .input {
             width: 470px;
             height: 45px;
@@ -71,4 +72,64 @@
             }
         }
     }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .search {
+        width: 500px;
+        .input {
+            width: 400px;
+            height:30px;
+            margin-left: 15px;
+            font-size: 18px;
+        }
+        .button{
+            width: 35px;
+            height: 35px;
+            & svg {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+    .search {
+        width: 300px;
+        .input {
+            width: 250px;
+            height:20px;
+            margin-left: 15px;
+            font-size: 18px;
+        }
+        .button{
+            width: 30px;
+            height: 30px;
+            & svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 425px) {
+    .search {
+        width: 200px;
+        padding: 3px ;
+        .input {
+            width: 150px;
+            height:20px;
+            margin-left: 15px;
+            font-size: 12px;
+        }
+        .button{
+            width: 27px;
+            height: 27px;
+            & svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+
 }

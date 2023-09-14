@@ -33,3 +33,22 @@
     }
 }
 
+
+@media screen and (min-width: 320px) and (max-width: 425px) {
+    .root{
+     
+        li{
+          
+            a {
+                
+                width: 25px;
+                height: 25px;
+                margin: 0 3px;
+                
+                border-radius: 20px;
+                
+            }
+        }
+    }
+
+}

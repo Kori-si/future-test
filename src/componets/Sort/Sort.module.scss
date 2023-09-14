@@ -61,3 +61,14 @@
         font-size: 27px;
     }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .sort{
+        font-size: 27px;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 425px) {
+    .sort{
+        font-size: 20px;
+    }
+}

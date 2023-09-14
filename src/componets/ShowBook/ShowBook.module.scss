@@ -6,7 +6,7 @@
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
     min-height: 100vh;
     width: 100%;
-   
+
     left: 0;
     top: 0;
     bottom: 0;
@@ -26,10 +26,10 @@
         width: 700px;
         height: auto;
         border-radius: 20px;
-      
+
         .innerBox {
             display: flex;
-          
+
             flex-direction: column;
             border: none;
 
@@ -104,6 +104,57 @@
                         & path {
                             fill: rgb(0, 0, 0);
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+    .overlay {
+        &Inner {
+            width: 90%;
+            .innerBox {
+                display: flex;
+
+                flex-direction: row;
+
+                &Inf {
+                    flex-direction: column;
+                    align-items: center;
+
+                    & img {
+                        width: 100px;
+                        border-radius: 10px;
+                        margin: 0 10px 10px 0;
+                    }
+                    .info {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 8px;
+                        width: 340px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 425px) {
+    .overlay {
+        &Inner {
+            width: 90%;
+            .innerBox {
+                .description {
+                    display: none;
+                }
+                &Inf {
+                    flex-direction: column;
+                    align-items: center;
+
+                    .info {
+                        width: 250px;
                     }
                 }
             }
