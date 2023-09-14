@@ -15,24 +15,10 @@
     list-style: none;
     box-sizing: border-box;
 }
+
 body {
     background: #cfbfb2;
     overflow-x: hidden;
-
-    &::-webkit-scrollbar {
-        width: 13px;
-    }
-
-    &::-webkit-scrollbar-track {
-        box-shadow: inset 5px 3px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: rgb(160, 130, 93);
-        box-shadow: inset 5px 0px 6px rgba(0, 0, 0, 0.3);
-        border-radius: 17px;
-        // outline: 1px solid slategrey;
-    }
 }
 
 .wrapper {

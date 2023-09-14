@@ -1,9 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
+
 import style from "./Sort.module.scss";
 
-export const Sort = ({ handleFuncSort, list }) => {
-  const sort = useSelector((state) => state.filter.sort);
+export const Sort = ({ handleFuncSort, list, sort }) => {
   const [open, setOpen] = React.useState(false);
 
   const onClickListItem = (obj) => {

@@ -93,6 +93,8 @@
                     justify-content: center;
                     border-radius: 5px;
                     box-sizing: border-box;
+                    position: absolute;
+                    right: 0;
 
                     & path {
                         fill: white;
@@ -116,14 +118,10 @@
         &Inner {
             width: 90%;
             .innerBox {
-                display: flex;
-
-                flex-direction: row;
-
                 &Inf {
                     flex-direction: column;
                     align-items: center;
-
+                    position: relative;
                     & img {
                         width: 100px;
                         border-radius: 10px;
@@ -145,7 +143,7 @@
     .overlay {
         &Inner {
             width: 80%;
-            height:auto;
+            height: auto;
             .innerBox {
                 .description {
                     display: none;
@@ -154,11 +152,10 @@
                 &Inf {
                     flex-direction: column;
                     align-items: center;
+                    position: relative;
 
                     & img {
                         min-width: 60px;
-
-                  
                     }
 
                     .info {
